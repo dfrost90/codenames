@@ -1,0 +1,15 @@
+export const CREATE_GAME = 'CREATE_GAME';
+export const JOIN_GAME = 'JOIN_GAME';
+export const END_GAME = 'END_GAME';
+export const EXIT_GAME = 'EXIT_GAME';
+export const START_GAME = 'START_GAME';
+export const SHOW_WORD_TYPE = 'SHOW_WORD_TYPE';
+export const VOTE_FOR_WORD = 'VOTE_FOR_WORD';
+export const RESET_WORD_VOTES = 'RESET_WORD_VOTES';
+export const NEXT_TEAM = 'NEXT_TEAM';
+export const LOAD_DATA = 'LOAD_DATA';
+export const UPDATE_DATA = 'UPDATE_DATA';
+export const PLAY_AGAIN = 'PLAY_AGAIN';
+export const SET_HINT = 'SET_HINT';
+export const RESET_UID = 'RESET_UID';
+export const RESET_GAME = 'RESET_GAME';
