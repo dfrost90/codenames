@@ -78,23 +78,29 @@ const HintControls = () => {
 
 const Wrapper = styled.div`
   .hint-container {
-    background-color: var(--bodyColor);
+    background-color: var(--clr-body);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     height: 100%;
     left: 0;
-    padding: 20px 0;
+    padding: 20px;
     position: absolute;
     top: 0;
     width: 100%;
 
     @media (min-width: 800px) {
+      justify-content: center;
       padding: 0;
     }
   }
 
   .form {
     margin-left: 10px;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
   }
 
   .btn {
