@@ -71,3 +71,11 @@ export const setUpGame = (data) => {
     words,
   };
 };
+
+export const gameLink = (roomId) => {
+  if (checkURL('roomId')) {
+    return window.location.href;
+  } else {
+    return `${window.location.href}?roomId=${roomId}`;
+  }
+};

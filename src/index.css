@@ -39,15 +39,16 @@
   --clr-black: #000;
 
   --clr-accent-1: #c2dc9b;
-  --clr-accent-2: #dee3d6;
-  --clr-accent-3: #edf0e8;
+  --clr-accent-2: #ddffa6;
+  --clr-accent-3: #e7ffbd;
+  --clr-accent-4: #74ab20;
 
   --clr-card-default-1: var(--clr-grey-9);
   --clr-card-default-2: var(--clr-grey-7);
-  --clr-card-red-1: rgb(255, 105, 105);
-  --clr-card-red-2: rgb(255, 161, 161);
+  --clr-card-red-1: rgb(255, 152, 152);
+  --clr-card-red-2: rgb(228, 37, 37);
   --clr-card-blue-1: rgb(113, 172, 255);
-  --clr-card-blue-2: rgb(200, 221, 250);
+  --clr-card-blue-2: rgb(10, 94, 210);
   --clr-card-yellow-1: rgb(250, 227, 78);
   --clr-card-yellow-2: rgb(222, 200, 60);
   --clr-card-black-1: rgb(20, 20, 20);
@@ -58,25 +59,31 @@
   --clr-team-2: var(--clr-card-red-2);
   --clr-team-2-light: var(--clr-card-red-1);
 
-  --clr-body: var(--clr-grey-8);
-  --clr-text: var(--clr-grey-3);
-  --clr-border: var(--clr-grey-1);
+  --clr-body: var(--clr-grey-1);
+  --clr-text: var(--clr-grey-9);
+  --clr-border: var(--clr-grey-2);
+  --clr-word: var(--clr-grey-9);
+  --clr-overlay: #000000dc;
 
   --clr-btn-background: var(--clr-primary-6);
   --clr-btn-background-hover: var(--clr-primary-7);
   --clr-btn: var(--clr-white);
   --clr-btn-border: var(--clr-primary-5);
 
-  --clr-input-backrgound: var(--clr-grey-9);
-  --clr-input-border: var(--clr-grey-7);
-  --clr-input: var(--clr-grey-2);
+  --clr-input-backrgound: var(--clr-grey-3);
+  --clr-input-border: var(--clr-grey-2);
+  --clr-input: var(--clr-grey-6);
 
   --clr-team-active: var(--clr-white);
+  --clr-shadow: var(--clr-grey-3);
+  --clr-text-shadow: var(--clr-grey-3);
+
+  --boxShadow: 0 0 20px 0 var(--clr-shadow);
 
   --borderRadius: 4px;
   --borderWidth: 2px;
-
-  --boxShadow: 0 0 20px 0 var(--clr-grey-7);
+  --flexGap: 20px;
+  --flexGapSmall: 10px;
 
   --transitionAll: 0.1s all ease-in-out;
 }
@@ -115,6 +122,7 @@
     --clr-accent-1: #c2dc9b;
     --clr-accent-2: #dee3d6;
     --clr-accent-3: #edf0e8;
+    --clr-accent-4: #95bd59;
 
     --clr-card-default-1: var(--clr-grey-9);
     --clr-card-default-2: var(--clr-grey-7);
@@ -135,6 +143,8 @@
     --clr-body: var(--clr-grey-10);
     --clr-text: var(--clr-grey-2);
     --clr-border: var(--clr-grey-7);
+    --clr-word: var(--clr-white);
+    --clr-overlay: #ffffffca;
 
     --clr-btn-background: var(--clr-primary-6);
     --clr-btn-background-hover: var(--clr-primary-7);
@@ -147,12 +157,10 @@
 
     --clr-team-active: var(--clr-white);
 
-    --borderRadius: 4px;
-    --borderWidth: 2px;
+    --clr-shadow: var(--clr-grey-7);
+    --clr-text-shadow: var(--clr-grey-3);
 
-    --boxShadow: 0 0 20px 0 var(--clr-grey-7);
-
-    --transitionAll: 0.1s all ease-in-out;
+    --boxShadow: 0 0 20px 0 var(--clr-shadow);
   }
 }
 
@@ -195,23 +203,39 @@ button {
   border: var(--borderWidth) solid var(--clr-btn-border);
   color: var(--clr-btn);
   font-weight: bold;
-  height: 40px;
-  padding: 8px 20px;
-  font-size: 1em;
+  min-height: 40px;
+  padding: 8px 10px;
+  font-size: 14px;
   font-family: inherit;
   cursor: pointer;
-  scale: 1;
   text-transform: uppercase;
-  transition: var(--transitionAll);
 }
+
 button:hover {
   background-color: var(--clr-btn-background-hover);
   box-shadow: var(--boxShadow);
-  scale: 1.05;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (min-width: 800px) {
+  .button {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+}
+
+@media (hover: hover) {
+  button {
+    scale: 1;
+    transition: var(--transitionAll);
+  }
+
+  button:hover {
+    scale: 1.05;
+  }
 }
 
 main {

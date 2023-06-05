@@ -1,6 +1,6 @@
 import { Flip, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Controls, Grid, Teams } from './components';
+import { Controls, Grid, Teams, ShareGame } from './components';
 import { styled } from 'styled-components';
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
       <Wrapper>
         <Controls />
         <Teams />
+        <ShareGame />
         <Grid />
       </Wrapper>
       <ToastContainer
@@ -47,14 +48,9 @@ const Wrapper = styled.main`
       vertical-align: middle;
     }
 
-    &.you {
-      box-shadow: inset 0 0 0 4px var(--clr-white);
-    }
-
     svg {
       background-color: var(--clr-white);
       border-radius: var(--borderRadius);
-      /* box-shadow: 0 0 10px 0 #00000029; */
       display: inline-block;
       padding: 2px;
       vertical-align: middle;

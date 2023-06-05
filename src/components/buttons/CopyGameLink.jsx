@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 import { useGameContext } from '../../context/game_context';
-import { checkURL } from '../../utils/utils';
+import { gameLink } from '../../utils/utils';
 
 const CopyGameLink = () => {
   const { roomId } = useGameContext();
@@ -10,13 +10,7 @@ const CopyGameLink = () => {
       className="btn-link"
       type="button"
       onClick={() => {
-        if (checkURL('roomId')) {
-          navigator.clipboard.writeText(`${window.location.href}`);
-        } else {
-          navigator.clipboard.writeText(
-            `${window.location.href}?roomId=${roomId}`
-          );
-        }
+        navigator.clipboard.writeText(gameLink(roomId));
         toast.info('copied!');
       }}
     >

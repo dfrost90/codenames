@@ -37,7 +37,7 @@ const Grid = () => {
 const Wrapper = styled.section`
   justify-content: center;
   display: grid;
-  gap: 20px;
+  gap: var(--flexGap);
   grid-template-columns: 1fr 1fr;
 
   @media screen and (min-width: 768px) {

@@ -43,8 +43,6 @@ const Controls = () => {
       )}
 
       {status === 'playing' && player.team && <PlayingControls />}
-
-      {roomId && status !== 'playing' && <CopyGameLink />}
     </Wrapper>
   );
 };

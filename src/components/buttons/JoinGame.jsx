@@ -22,7 +22,7 @@ const JoinGame = ({ team, host }) => {
 
   return (
     <button
-      className="btn"
+      className={`btn ${host ? 'btn-host' : 'btn-join'}`}
       type="button"
       onClick={() => {
         joinGame({ ...player });
@@ -30,7 +30,11 @@ const JoinGame = ({ team, host }) => {
       }}
     >
       {host && <FaCrown />}
-      {!host && `join ${team}`}
+      {!host && (
+        <>
+          play <span className={`team-icon ${team}`}></span>
+        </>
+      )}
     </button>
   );
 };

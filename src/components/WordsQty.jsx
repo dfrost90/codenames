@@ -46,7 +46,7 @@ const WordsQty = () => {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: var(--flexGap);
 
   span {
     font-size: 20px;

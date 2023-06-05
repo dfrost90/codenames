@@ -36,12 +36,13 @@ const JoinControls = () => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: var(--flexGapSmall);
   margin-top: 20px;
 
   .join-team {
     display: flex;
-    flex: 1 1 auto;
+    gap: var(--flexGapSmall);
+    flex: 0 1 80%;
     justify-content: space-evenly;
     align-items: center;
 
@@ -55,43 +56,33 @@ const Wrapper = styled.div`
   }
 
   .btn-join {
-    border: 2px solid var(--clr-white);
-    color: var(--clr-white);
-    font-weight: bold;
-    text-transform: uppercase;
+    background-color: var(--clr-accent-2);
+    border-color: var(--clr-accent-4);
+    color: var(--clr-accent-4);
+    font-size: 12px;
 
-    &.blue {
-      background-color: #06a6b7;
-
-      &:hover {
-        background-color: #0d626c;
-      }
-    }
-    &.red {
-      background-color: #b51e1e;
-
-      &:hover {
-        background-color: #7f1111;
-      }
+    @media (min-width: 800px) {
+      font-size: 14px;
     }
   }
 
   .btn-host {
-    border-color: #d0ff00;
+    background-color: var(--clr-accent-4);
+    border-color: var(--clr-accent-4);
+  }
+
+  .team-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    height: 16px;
+    width: 16px;
 
     &.blue {
-      background-color: #06a6b7;
-
-      &:hover {
-        background-color: #0d626c;
-      }
+      background-color: var(--clr-card-blue-1);
     }
     &.red {
-      background-color: #b51e1e;
-
-      &:hover {
-        background-color: #7f1111;
-      }
+      background-color: var(--clr-card-red-1);
     }
   }
 `;

@@ -1,9 +1,17 @@
 import { styled } from 'styled-components';
 import { FaCrown } from 'react-icons/fa';
 import { useGameContext } from '../context/game_context';
+import { useEffect, useState } from 'react';
 
 const Teams = () => {
   const { status, teams, currentTeam, winner, roomId } = useGameContext();
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  useEffect(() => {
+    if (winner) {
+      setShowOverlay(true);
+    }
+  }, [winner]);
 
   const allTeams = Object.keys(teams).map((team) => {
     return { ...teams[team], name: team };
@@ -51,6 +59,11 @@ const Teams = () => {
           </div>
         );
       })}
+      {winner && showOverlay && (
+        <div className="winner-overlay" onClick={() => setShowOverlay(false)}>
+          {winner} wins!
+        </div>
+      )}
     </Wrapper>
   );
 };
@@ -60,10 +73,11 @@ const Wrapper = styled.div`
   border-style: solid;
   border-color: var(--clr-border);
   display: flex;
-  gap: 40px;
+  gap: var(--flexGap);
   justify-content: space-between;
   margin: 20px 0;
   padding: 20px 0;
+  position: relative;
 
   .placeholder {
     user-select: none;
@@ -93,6 +107,7 @@ const Wrapper = styled.div`
     &.blue {
       background-color: var(--clr-team-1);
       color: var(--clr-team-1);
+      justify-content: start;
 
       .winner {
         background-color: var(--clr-team-1);
@@ -103,6 +118,7 @@ const Wrapper = styled.div`
     &.red {
       background-color: var(--clr-team-2);
       color: var(--clr-team-2);
+      justify-content: end;
 
       .winner {
         background-color: var(--clr-team-2);
@@ -142,11 +158,43 @@ const Wrapper = styled.div`
   .winner {
     font-size: 20px;
     font-weight: bold;
+    height: 100%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    text-align: center;
     text-transform: uppercase;
+    width: 100%;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+
+  .winner-overlay {
+    background-color: var(--clr-overlay);
+    color: var(--clr-accent-4);
+    height: 100%;
+    font-size: 36px;
+    font-weight: bold;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    text-transform: uppercase;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
   }
 
   .info {

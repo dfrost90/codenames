@@ -6,7 +6,6 @@ import { usePlayerContext } from '../context/player_context';
 const Word = ({ word }) => {
   const { showType, type, value, votes } = word;
   const {
-    teams,
     winner,
     currentTeam,
     showWordType,
@@ -16,16 +15,6 @@ const Word = ({ word }) => {
   } = useGameContext();
   const { player } = usePlayerContext();
   const { host, team, uid } = player;
-
-  const [{ blue }, { red }] = Object.keys(teams).map((team) => {
-    const players = Object.keys(teams[team].players).map((player) => ({
-      ...teams[team].players[player],
-    }));
-
-    return {
-      [team]: players,
-    };
-  });
 
   const handleClick = () => {
     if (showType || team !== currentTeam || winner) {
@@ -62,19 +51,27 @@ const Wrapper = styled.article`
   border: var(--borderWidth) solid var(--clr-white);
   border-radius: var(--borderRadius);
   cursor: pointer;
+  color: var(--clr-word);
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 1px;
   min-height: 40px;
   overflow: hidden;
   padding: 10px 20px;
   position: relative;
   text-align: center;
   text-transform: uppercase;
+  text-shadow: 1px 1px 2px var(--clr-text-shadow);
   user-select: none;
-  scale: 1;
-  transition: var(--transitionAll);
 
-  &:hover {
-    box-shadow: var(--boxShadow);
-    scale: 1.05;
+  @media (hover: hover) {
+    scale: 1;
+    transition: var(--transitionAll);
+
+    &:hover {
+      box-shadow: var(--boxShadow);
+      scale: 1.05;
+    }
   }
 
   &.back::after {
